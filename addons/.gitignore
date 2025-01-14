@@ -1,0 +1,9 @@
+.idea
+.project
+.pydevproject
+.settings
+.vscode
+*.pyc
+*.pyo
+*~
+/*server.conf

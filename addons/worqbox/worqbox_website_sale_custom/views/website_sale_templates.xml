@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="address" inherit_id="website_sale.address" name="Address Management">
+        <xpath expr="//h2[hasclass('o_page_header')][1]"
+            position="replace">
+            <h2 class="o_page_header mt8">Vos coordonnées 
+            </h2>
+        </xpath>
+
+        <xpath expr="//div[contains(@t-attf-class, 'div_country')]"
+            position="replace">
+            <div
+                t-attf-class="form-group #{error.get('country_id') and 'o_has_error' or ''} col-lg-6 div_country"
+                style="display: none">
+                <label class="col-form-label" for="country_id" style="display: none">Country</label>
+                <select id="country_id" name="country_id" style="display: none"
+                    t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}"
+                    t-att-mode="mode[1]">
+                    <option value="">Country...</option>
+                    <t t-foreach="countries" t-as="c">
+                        <option t-att-value="c.id"
+                            t-att-selected="c.id == (country and country.id or request.env.ref('base.ma').id)">
+                            <t t-esc="c.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[contains(@t-attf-class, 'div_state')]"
+            position="replace">
+            <div
+                t-attf-class="form-group #{error.get('state_id') and 'o_has_error' or ''} col-lg-6 div_state"
+                style="display: none">
+                <label class="col-form-label" for="state_id" style="display: none">State / Province</label>
+                <select name="state_id"
+                    t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}"
+                    disabled="1"
+                    data-init="0"
+                    style="display: none">
+                    <option value="" selected="1">State / Province...</option>
+                    <t t-foreach="country_states" t-as="s">
+                        <option t-att-value="s.id">
+                            <t t-esc="s.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('col-lg-12')]"
+            position="attributes">
+            <attribute name="style">display: none</attribute>
+
+        </xpath>
+
+        <xpath expr="//div[hasclass('justify-content-between')]"
+            position="replace">
+            <div class="d-flex justify-content-between">
+                <!-- <a role="button"
+                    t-att-href="mode == ('new', 'billing') and '/shop/cart' or '/shop/checkout'"
+                    class="btn btn-secondary mb32">
+                    <i class="fa fa-chevron-left" />
+                    <span>Back</span>
+                </a> -->
+                <a role="button" href="#"
+                    class="btn btn-primary mb32 a-submit a-submit-disable a-submit-loading" style="width: 100%;" >
+                    <span>Confirmer votre Devis </span> <i class="fa fa-chevron-right" />
+                </a>
+            </div>
+        </xpath>
+
+        <xpath expr="//label[@for='name']"
+        position="replace">
+        <label class="col-form-label" for="name">Nom Prénom</label><span class="adress_required">*</span>
+      </xpath>
+        <xpath expr="//label[@for='email']"
+            position="after">
+            <span class=""></span>
+        </xpath>
+        <xpath expr="//label[@for='phone']"
+            position="after">
+            <span class="adress_required">*</span>
+        </xpath>
+        <xpath expr="//label[@for='street']"
+            position="replace">
+            <label class="col-form-label" for="street">Address</label><span class=""></span>
+        </xpath>
+        <xpath expr="//label[@for='street2']"
+            position="replace">
+            <label class="col-form-label label-optional" for="street2">Aditionnal address</label>
+        </xpath>
+        <xpath expr="//label[@for='city']"
+            position="after">
+            <span class="adress_required">*</span>
+        </xpath>
+        <xpath expr="//t[contains(@t-if, '&lt;')]/div/label[@for='zip']"
+            position="replace">
+            <label class="col-form-label label-optional" for="zip">Code</label>
+        </xpath>
+        <xpath expr="//t[contains(@t-if, '&gt;')]/div/label[@for='zip']"
+            position="after">
+            <span class="adress_required">*</span>
+        </xpath>
+
+
+    </template>
+
+    <template id="address_b2b" inherit_id="website_sale.address_b2b" name="Show b2b fields">
+        <xpath expr="//label[@for='vat']" position="replace">
+            <label class="col-form-label font-weight-normal label-optional" for="vat">ICE</label>
+        </xpath>
+    </template>
+
+    <template id="cart_summary" name="Cart right column" inherit_id="website_sale.cart_summary">
+        <xpath expr="//strong[@t-field='line.name_short']" position="replace">
+            <strong t-field="line.product_id.display_name" />
+        </xpath>
+    </template>
+
+    <template id="total" name="Total" inherit_id="website_sale.total">
+        <xpath expr="//tr[@id='order_total_untaxed']/td[1]" position="replace">
+            <td class="text-right border-0">Total without taxes:</td>
+        </xpath>
+    </template>
+
+    <template id="wizard_checkout" name="Wizard Checkout" inherit_id="website_sale.wizard_checkout">
+        <xpath expr="//div[@id='wizard-step40']/div[2]" position="replace">
+            <div class="text-center progress-wizard-steplabel">My quotation</div>
+        </xpath>
+    </template>
+
+    <template id="confirmation" name="Confirmation" inherit_id="website_sale.confirmation">
+        <xpath expr="//h1/span" position="replace">
+        </xpath>
+        <xpath expr="//h3/strong" position="replace">
+            <strong>Informations:</strong>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div/b" position="replace">
+            <b>Billing: </b>
+        </xpath>
+    </template>
+
+</odoo>

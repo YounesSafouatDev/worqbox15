@@ -1,0 +1,87 @@
+<odoo>
+    <record id="product_template_inherit_view_add_new_fields" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='detailed_type']" position="after">
+                <field name="lpl_collection"/>
+            </xpath>
+
+            <xpath expr="//field[@name='detailed_type']" position="before">
+                <field name="default_code" position="move"/>
+                <field name="product_brand_id" position="move"/>
+                <field name="main_seller_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="invoice_policy" required="1" position="move"/>
+                <field name="product_tooltip" string="" class="font-italic text-muted" position="move"/>
+                <field name="uom_po_id" position="move"/>
+                <label for="base_unit_count" position="move"/>
+                <div name="base_unit_price" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='uom_id']" position="after">
+                <field name="sale_price_unit" class="oe_inline" widget="monetary"
+                       options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <field name="cost_price_unit" class="oe_inline" string="Coût TTC / m2, ml ou pièce" widget="monetary"
+                       options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <label for="margin" string="Marge HT / m2, ml ou pièce"/>
+                <div name="margin">
+                    <field name="margin" class="oe_inline" widget="monetary"
+                           options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                    <span class="ml-2"/>
+                    (
+                    <field name="margin_percent"/>
+                    %)
+                </div>
+                <field name="taxes_id" position="move"/>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Description vente LPL" name="description vente"
+                      attrs="{'invisible':[('company_ids', 'not in', 1)]}">
+                    <group>
+                        <group>
+                            <field name="composition"/>
+                            <field name="essence_bois" />
+                            <field name="wood_choice"/>
+                            <field name="format"/>
+                            <field name="usage_classification"/>
+                            <field name="water_resistance"/>
+                            <field name="scratch_resistance"/>
+                        </group>
+                        <group>
+                            <field name="thickness" widget="integer" options="{&quot;thousands_separator&quot;: true}"/>
+                            <field name="parement"/>
+                            <field name="depth"/>
+                            <field name="width"/>
+                            <field name="hight"/>
+                            <field name="length"/>
+                            <field name="diameter"/>
+                        </group>
+                        <group>
+                            <field name="integrated_underlay"/>
+                            <field name="chamfer"/>
+                            <field name="installation"/>
+                            <field name="finition"/>
+                            <field name="protection"/>
+                            <field name="guarantee"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Description vente ORAC" name="description vente"
+                      attrs="{'invisible':[('company_ids', 'not in', 11)]}">
+                    <group>
+                        <field name="depth"/>
+                        <field name="hight"/>
+                        <field name="length"/>
+                        <field name="diameter"/>
+                        <field name="composition"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="worqbox_blog_time" inherit_id="website_blog.post_info" name="Remove Blog date" active="True" customize_show="True">
+        <xpath expr="//time" position="replace"/>
+    </template>
+
+</odoo>

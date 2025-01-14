@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_list_family" model="ir.actions.act_window">
+        <field name="name">Famille</field>
+        <field name="res_model">worqbox.family</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_sale_family"
+        name="Familles"
+        parent="sale.prod_config_main"
+        sequence="2"
+        action="action_list_family"
+    />
+
+    <menuitem id="menu_purchase_family"
+        name="Familles"
+        parent="purchase.menu_product_in_config_purchase"
+        sequence="2"
+        action="action_list_family"
+    />
+    
+    <menuitem id="menu_stock_family"
+        name="Familles"
+        parent="stock.menu_product_in_config_stock"
+        sequence="2"
+        action="action_list_family"
+    />
+
+    <record id="view_product_family_template_list" model="ir.ui.view">
+        <field name="name">view.product.family.template.list</field>
+        <field name="model">worqbox.family</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

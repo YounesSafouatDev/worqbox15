@@ -1,0 +1,38 @@
+<odoo>
+ <record id="product_template_inherit_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//page[@name='general_information']/group/group[@name='group_standard_price']" position="after">
+                 <group>
+                    <field name="profondeur"/>
+                    <field name="hauteur"/>
+                    <field name="longueur"/>
+                    <field name="diametre"/>
+                 </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_inherit_list_view" model="ir.ui.view">
+        <field name="name">product.template.list.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="qty_available" position="after">
+                <field name="stock_value" string="Valeur en stock" widget='monetary' sum="Valorisation stock" optional="show"/>
+            </field>
+            <field name="default_code" position="after">
+                <field name="profondeur" optional="hide"/>
+                <field name="hauteur" optional="hide"/>
+                <field name="longueur" optional="hide"/>
+                <field name="diametre" optional="hide"/>
+            </field>
+            <field name="uom_id" position="before">
+                <field name="sales_count"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+

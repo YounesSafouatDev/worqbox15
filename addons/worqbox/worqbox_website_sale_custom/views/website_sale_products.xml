@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- PRODUCTS ITEM -->
+    <template id="worqbox_products_item" inherit_id="website_sale.products_item">
+        <!-- Adding default code to product name -->
+        <xpath expr="//h6/a[1]" position="attributes">
+            <attribute name="t-field">product.display_name</attribute>    
+            <attribute name="t-att-content">product.display_name</attribute>    
+        </xpath>
+    </template>
+
+    <!-- Dimensions below product name in products item -->
+    <template id="worqbox_products_item_dimension" name="Product Dimensions" inherit_id="website_sale.products_item" active="True" customize_show="True">
+        <xpath expr="//h6" position="after">
+            <t t-call="worqbox_website_sale_custom.worqbox_product_dimension"/>
+        </xpath>
+    </template>
+
+    <!-- Showing base unit price when revelant -->
+    <template id="worqbox_products_item_price" name="Product Base unit" inherit_id="website_sale.products_item">
+        <xpath expr="//div[hasclass('product_price')]" position="replace">
+            <div class="product_price mb-1" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                <t t-if="combination_info['price'] and (product.sale_uom_id != product.uom_id)">
+                    <span class="h5"><span t-esc="combination_info['base_unit_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/> / <span t-field="product.base_unit_name"/></span>
+                </t>
+                <t t-else="">
+                    <span class="h5" t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    <del t-attf-class="text-danger ml-1 h6 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                    <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Override product items description to load web description instead -->
+    <template id="website_sale.products_description" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Product Description">
+        <xpath expr="//*[hasclass('product_price')]" position="before">
+            <div class="oe_subdescription" contenteditable="false">
+                <div itemprop="description" t-field="product.product_web_description"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Adding dimensions to similar products -->
+    <template id="worqbox_similar_products" inherit_id="atharva_theme_base.similar_product_template">
+        <xpath expr="//h4" position="after">
+            <t t-call="worqbox_website_sale_custom.worqbox_product_dimension"/>            
+        </xpath>
+    </template>
+    
+    <!-- Adding dimensions to similar products -->
+    <template id="worqbox_similar_products_price" inherit_id="atharva_theme_base.similar_product_template">
+        <xpath expr="//div[hasclass('sim-pro-body')]" position="replace">
+            <div class="sim-pro-body">
+                <h4><t t-esc="product.display_name"/></h4>
+                <div t-if="product.product_variant_ids and (website.user_id != user_id or website.user_id == user_id and not website.active_b2b)" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
+                    <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                    <t t-if="product.sale_uom_id != product.uom_id">
+                        <span class="oe_price" t-esc="combination_info['base_unit_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/> / <span class="product_price" t-field="product.base_unit_name"/>
+                    </t>
+                    <t t-else="">
+                        <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    </t>
+                    <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                    <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- New filter by dimensions -->
+    <template id="filter_products_dimensions" inherit_id="website_sale.products" active="True" customize_show="True" name="Filter by Dimensions">
+        <xpath expr="//div[@id='products_grid_before']" position="before">
+            <t t-set="enable_left_column" t-value="True"/>
+        </xpath>
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <div>
+                <div t-if="avail_min_longueur != avail_max_longueur" id="o_wsale_range_longueur">
+                    <label for="longueur">Longueur : </label>
+                    <input id="longueur" type="range" multiple="multiple" class="custom-range range-with-input"
+                       step="1.0" t-att-min="'%f' % (avail_min_longueur)"
+                       t-att-max="'%f' % (avail_max_longueur)" t-att-value="'%f,%f' % (min_longueur, max_longueur)"/>
+                </div>
+                <div t-if="avail_min_hauteur != avail_max_hauteur" id="o_wsale_range_hauteur">
+                    <label for="hauteur">Hauteur : </label>
+                    <input id="hauteur" type="range" multiple="multiple" class="custom-range range-with-input"
+                       step="1.0" t-att-min="'%f' % (avail_min_hauteur)"
+                       t-att-max="'%f' % (avail_max_hauteur)" t-att-value="'%f,%f' % (min_hauteur, max_hauteur)"/>
+                </div>
+                <div t-if="avail_min_profondeur != avail_max_profondeur" id="o_wsale_range_profondeur">
+                    <label for="profondeur">Profondeur : </label>
+                    <input id="profondeur" type="range" multiple="multiple" class="custom-range range-with-input"
+                       step="1.0" t-att-min="'%f' % (avail_min_profondeur)"
+                       t-att-max="'%f' % (avail_max_profondeur)" t-att-value="'%f,%f' % (min_profondeur, max_profondeur)"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- New filter by flexibility -->
+    <template id="filter_products_flexible" inherit_id="website_sale.products" active="True" customize_show="True" name="Filter by Flexibility">
+        <xpath expr="//div[@id='products_grid_before']" position="before">
+            <t t-set="enable_left_column" t-value="True"/>
+        </xpath>
+        <xpath expr="//div[hasclass('products_categories')]" position="after">
+            <div id="products_version" class="mb-lg-3">
+                <strong class="products_version_title">Version</strong>
+                <select class="custom-select css_attribute_select mt-lg-3" name="version">
+                    <option value="all">Toutes versions</option>
+                    <option value="no-flex" t-att-selected="flexible == 'no-flex'">Semi-rigide</option>
+                    <option value="flexible" t-att-selected="flexible == 'flexible'">Flexible</option>
+                </select>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

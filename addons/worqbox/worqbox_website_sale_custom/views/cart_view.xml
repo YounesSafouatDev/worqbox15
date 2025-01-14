@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="worqbox_cart_lines" inherit_id="website_sale.cart_lines">
+        <!-- Adding default code to cart product line -->
+        <xpath expr="//strong[@t-field='line.name_short']" position="replace">
+            <strong t-field="line.product_id.display_name"/>
+        </xpath>
+        <!-- Removing sale description and show product dimension instead -->
+        <xpath expr="//td[hasclass('td-product_name')]/t" position="replace">
+            <p t-if="line.product_id.profondeur or line.product_id.hauteur or line.product_id.longueur" class="text-muted mb-0">
+                L <span t-field="line.product_id.longueur"/> * H <span t-field="line.product_id.hauteur"/> * P <span t-field="line.product_id.profondeur"/> cm
+            </p>
+        </xpath>
+        <!-- Adapting price and base_unit price -->
+        <xpath expr="//td[@name='price']/small" position="before">
+            <span id='worq_unit'>
+              / Unité
+            </span>
+        </xpath>
+        <xpath expr="//td[@name='price']/small/t" position="replace">
+            <span>
+                (<span class="oe_price" t-esc="combination_info['base_unit_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                 / <span class="product_price" t-field="line.product_id.base_unit_name"/>)
+            </span>
+        </xpath>
+       
+    </template>
+
+    <!-- Customized web description in cart product line -->
+    <template id="worqbox_cart_lines_description" name="Product Web Description" inherit_id="website_sale.cart_lines" active="False" customize_show="True">
+        <xpath expr="//td[hasclass('td-product_name')]" position="inside">
+            <p class="text-muted" t-field="line.product_id.product_web_description"/>
+        </xpath>
+    </template>
+
+    <!-- Renaming 'Pay with' in french -->
+    <template id="worqbox_payment" inherit_id="website_sale.payment">
+        <xpath expr="//div[@id='payment_method']/h3" position="replace">
+            <h3 class="mb24">Terminer avec</h3>
+        </xpath>
+        <xpath expr="." position="inside">
+            <script type="text/javascript">
+                document.body.innerHTML = document.body.innerHTML.replace('commande', ' Devis');
+        </script>
+          </xpath>
+        <xpath expr="//div[@id='payment_method']/t/t[2]" position="replace">
+            <t t-set="submit_button_label">Confirmer Votre Devis</t>
+        </xpath>
+       
+    </template>
+
+    <template id="worqbox_confirmation" inherit_id="website_sale.confirmation">
+        <xpath expr="//div[hasclass('card-body')]" position="replace" >
+           
+        </xpath>
+       
+         
+    </template>
+</odoo>

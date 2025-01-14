@@ -1,0 +1,317 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* worqbox_website_sale_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-30 15:29+0000\n"
+"PO-Revision-Date: 2023-07-30 15:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_dimension
+msgid "(Longueur * Hauteur * Profondeur)"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_price
+msgid "/ <span>pc</span>)"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.confirmation
+msgid "<b>Billing: </b>"
+msgstr "<b>Facturation : </b>"
+
+#. module: worqbox_website_sale_custom
+#: model:mail.template,body_html:worqbox_website_sale_custom.mail_template_sale_confirmation
+msgid ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 12px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px;\"> Hello Mister/Miss <span t-out=\"object.partner_id.name\"/>, </p>\n"
+"                    <br/>\n"
+"                    <p> The Orac Maroc sales team has received your quote request.<br/> You will be\n"
+"                        contacted as soon as possible.<br/><br/> Sincerely,<br/><br/> The Orac\n"
+"                        Morocco sales team </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 12px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px;\"> Bonjour Monsieur/Madame <span t-out=\"object.partner_id.name\"/>, </p>\n"
+"                    <br/>\n"
+"                    <p>L'équipe commerciale d'Orac Maroc a bien reçu votre demande de devis.<br/> Vous serez\n"
+"                        contacté(e) dans les plus brefs délais.<br/><br/> Cordialement, <br/><br/> L'équipe\n"
+"                        commerciale d'Orac Maroc </p>\n"
+"                </div>\n"
+"            "
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid ""
+"<i class=\"fa fa-chevron-left\"/>\n"
+"                    <span>Back</span>"
+msgstr ""
+"<i class=\"fa fa-chevron-left\"/>\n"
+"                    <span>Retour</span>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_detail_layout
+msgid "<i class=\"fa fa-share-alt fa-inverse\"> Share</i>"
+msgstr "<i class=\"fa fa-share-alt fa-inverse\"> Partager</i>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_opt_sidebar_blog_index_follow_us_tiktok
+msgid "<i class=\"fa fa-tiktok \" aria-label=\"TikTok\" title=\"TikTok\"/>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "<option value=\"\" selected=\"1\">State / Province...</option>"
+msgstr "<option value=\"\" selected=\"1\">État / Province...</option>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "<option value=\"\">Country...</option>"
+msgstr "<option value=\"\">Pays...</option>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_flexible
+msgid "<option value=\"all\">Toutes versions</option>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "<span class=\"adress_required\">*</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_detail_layout
+msgid "<span>Download</span>"
+msgstr "<span>Télécharger</span>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.product_banner
+msgid "<span>Facile à installer</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.product_banner
+msgid "<span>Flexible</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.product_banner
+msgid "<span>Peut être peint</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.product_banner
+msgid "<span>Résistant à l'eau</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "<span>Send</span> <i class=\"fa fa-chevron-right\"/>"
+msgstr "<span>Evoyer</span> <i class=\"fa fa-chevron-right\"/>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.product_banner
+msgid "<span>Écologique</span>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_flexible
+msgid "<strong class=\"products_version_title\">Version</strong>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.confirmation
+msgid "<strong>Informations:</strong>"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "Address"
+msgstr "Adresse"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "Aditionnal address"
+msgstr "Complément d'adresse"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_as_quick_added_cart
+msgid "Close"
+msgstr "Fermer"
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model,name:worqbox_website_sale_custom.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model.fields,field_description:worqbox_website_sale_custom.field_res_company__social_tiktok
+#: model:ir.model.fields,field_description:worqbox_website_sale_custom.field_res_config_settings__social_tiktok
+#: model:ir.model.fields,field_description:worqbox_website_sale_custom.field_website__social_tiktok
+msgid "Compte TikTok"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model,name:worqbox_website_sale_custom.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model.fields,field_description:worqbox_website_sale_custom.field_res_config_settings__has_social_network
+msgid "Configure Social Network"
+msgstr "Configurer les Réseaux Sociaux"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_payment
+msgid "Confirmer la commande"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "Country"
+msgstr "Pays"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_detail_layout
+msgid "Description produit pour site web"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_related
+msgid "Disponible en version flexible"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_related
+msgid "Disponible en version semi-rigide"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_detail_layout
+msgid "Fiche technique {{ product.default_code }}"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_flexible
+msgid "Flexible"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model.fields,field_description:worqbox_website_sale_custom.field_product_template__display_name
+msgid "Full Name"
+msgstr "Nom complet"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_dimensions
+msgid "Hauteur :"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address_b2b
+msgid "ICE"
+msgstr "ICE"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_category_videos
+msgid "INSTALLATIONS"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "Log in to your account"
+msgstr "Connectez vous à votre compte"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_dimensions
+msgid "Longueur :"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.wizard_checkout
+msgid "My quotation"
+msgstr "Mon devis"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_detail_layout
+msgid "Product Name"
+msgstr "Produit"
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model,name:worqbox_website_sale_custom.model_product_template
+msgid "Product Template (Multi-Company)"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_dimensions
+msgid "Profondeur :"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model:mail.template,name:worqbox_website_sale_custom.mail_template_sale_confirmation
+msgid "Sales Order: Orac Confirmation Email"
+msgstr "Devis: Orac Confirmation Devis"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.filter_products_flexible
+msgid "Semi-rigide"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "Set your information <small> or </small>"
+msgstr "Saisissez vos informations  <small> ou </small>"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.address
+msgid "State / Province"
+msgstr "État / Province"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_payment
+msgid "Terminer avec"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worbox_res_config_settings_view_form
+msgid "TikTok"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.total
+msgid "Total without taxes:"
+msgstr "Total hors taxes"
+
+#. module: worqbox_website_sale_custom
+#: model:ir.model,name:worqbox_website_sale_custom.model_website
+msgid "Website"
+msgstr "Site Web"
+
+#. module: worqbox_website_sale_custom
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_cart_lines
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_cart_lines_popup_content
+#: model_terms:ir.ui.view,arch_db:worqbox_website_sale_custom.worqbox_product_dimension
+msgid "cm"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#. openerp-web
+#: code:addons/worqbox_website_sale_custom/static/src/xml/search_bar.xml:0
+#, python-format
+msgid "result['display_name']"
+msgstr ""
+
+#. module: worqbox_website_sale_custom
+#: model:mail.template,subject:worqbox_website_sale_custom.mail_template_sale_confirmation
+msgid "{{ object.company_id.name }} (Ref {{ object.name or 'n/a' }})"
+msgstr "{{ object.company_id.name }} (Ref {{ object.name or 'n/a' }})"

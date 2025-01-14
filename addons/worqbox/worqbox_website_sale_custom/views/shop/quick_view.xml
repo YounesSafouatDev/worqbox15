@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="worqbox_as_quick_added_cart" inherit_id="atharva_theme_base.as_quick_added_cart">
+        <xpath expr="//div[hasclass('as-confirm-item-box')]/div[hasclass('as-confirm-item-img')]" position="replace">
+            <div>
+                <img t-att-src="request.website.image_url(product,'image_1920')"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('as-confirm-item-info')]/div[hasclass('btn-bar')]/button[1]" position="replace">
+            <button class="btn btn-primary as-btn" data-dismiss="modal" aria-label="Close"><i class="fa fa-shopping-cart"/></button>
+        </xpath>
+    </template>
+
+</odoo>

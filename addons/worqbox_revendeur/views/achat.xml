@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="achat_view_form" model="ir.ui.view">
+        <field name="name">achat.form</field>
+        <field name="model">vendeur.achat</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                     <button string="Valider Devis Orac Maroc" type="object" class="btn-primary"
+                            help="ce button vous permit de faire une commande chez Orac Maroc"
+                            confirm="Voulais vous vraiment passer une commande chez Orac maroc"
+                            name="action_achat" attrs="{'invisible':[('or_mar_devis_id', '!=', False)]}"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="client_id" readonly="1"/>
+                            <field name="client_adress" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="devis_date" readonly="1"/>
+                            <field name="or_mar_devis_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ligne devis">
+                            <group>
+                                <field name="achat_linge">
+                                    <tree editable="buttom">
+                                        <field name="product_id" domain="[['is_published','=',True]]"/>
+                                        <field name="quantity"/>
+                                        <field name="prix" readonly="1"/>
+                                        <field name="remis" widget="percentage" readonly="1"/>
+                                        <field name="total" readonly="1"/>
+                                    </tree>
+
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+
+                        </group>
+                        <group>
+                            <field name="totalht" readonly="1"/>
+                            <field name="totaltva" readonly="1"/>
+                            <field name="total" readonly="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="achat_view_tree" model="ir.ui.view">
+        <field name="name">achat.tree</field>
+        <field name="model">vendeur.achat</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="devis_date" readonly="1"/>
+                 <field name="state" widget='badge' decoration-success="state == 'Confirmer'" decoration-info="state not in ('Confirmer', 'Annuler')" readonly="1"/>
+
+                <field name="totalht" />
+                <field name="totaltva" />
+                <field name="total" />
+            </tree>
+        </field>
+    </record>
+    <record model='ir.actions.act_window' id='vendeur_achat_action'>
+        <field name="name">Mes Achats</field>
+        <field name="res_model">vendeur.achat</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('create_uid','=',False),('create_uid','=',uid)]</field>
+        <field name="help" type="html">
+             <p class="o_view_nocontent_smiling_face">
+                Créer de nouveaux devis
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

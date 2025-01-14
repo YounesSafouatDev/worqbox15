@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="worqbox_website_sale_custom.s_searchbar.autocomplete" t-inherit="website.s_searchbar.autocomplete" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('media-body')]/div" position="attributes">
+            <attribute name="t-out">result['display_name']</attribute>
+        </xpath>
+    </t>
+
+</templates>

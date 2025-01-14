@@ -1,0 +1,17 @@
+Index: theme/theme_alan/static/src/js/base/quickProdView.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/theme/theme_alan/static/src/js/base/quickProdView.js b/theme/theme_alan/static/src/js/base/quickProdView.js
+--- a/theme/theme_alan/static/src/js/base/quickProdView.js	
++++ b/theme/theme_alan/static/src/js/base/quickProdView.js	(date 1690725276383)
+@@ -175,7 +175,7 @@
+         cr._alanAddToCart(params).then(data =>{
+             alanUpdateCartNavBar(data);
+             var cartQuant = data.cart_quantity;
+-            var totalAmount = webUtils.Markup($(data["website_sale.short_cart_summary"]).find("#order_total_untaxed").find(".monetary_field").html());
++            var totalAmount = webUtils.Markup($(data["website_sale.short_cart_summary"]).find("#order_total").find(".monetary_field").html());
+             ajax.jsonRpc('get/quick_product_view', 'call',{
+                 'hasVariant':false,
+                 'productId':params.product_id,

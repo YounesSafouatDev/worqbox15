@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="model_product_update_no_company_ids" model="ir.actions.server">
+        <field name="name">Product: Update no company_ids</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_view_types"></field>
+        <field name="state">code</field>
+        <field name="code">records._compute_no_company_ids()</field>
+    </record>
+
+    <record id="model_partner_update_no_company_ids" model="ir.actions.server">
+        <field name="name">Contact: Update no company_ids</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types"></field>
+        <field name="state">code</field>
+        <field name="code">records._compute_no_company_ids()</field>
+    </record>
+
+</odoo>

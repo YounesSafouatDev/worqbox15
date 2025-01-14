@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vente_view_form" model="ir.ui.view">
+        <field name="name">vente.form</field>
+        <field name="model">vendeur.vente</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="client_id" default_focus="1" required="True" domain="['|',('create_uid','=',False),('create_uid','=',uid)]"/>
+                            <field name="client_adress"/>
+                            <field name="achat_id" readonly="1"  attrs="{'invisible':[('achat_id', '=', False)]}"/>
+
+                        </group>
+
+                        <group>
+                            <field name="devis_date" readonly="1"/>
+                            <field name="vendeur" readonly="1" widget="many2one_avatar_user"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ligne devis">
+                            <group>
+                                <field name="vente_linge" required="True">
+                                    <tree editable="buttom">
+                                        <field name="product_id" required="True" domain="[['is_published','=',True]]"/>
+                                        <field name="quantity" required="True"/>
+                                        <field name="prix" readonly="1" />
+                                        <field name="remis" widget="percentage" />
+                                        <field name="total" readonly="1"/>
+                                    </tree>
+
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+
+                        </group>
+                        <group>
+                            <field name="totalht" readonly="1"/>
+                            <field name="totaltva" readonly="1"/>
+                            <field name="total" readonly="1"/>
+                            <field name="marge" readonly="1"/>
+                        </group>
+                    </group>
+
+
+                </sheet>
+                   <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="vente_view_tree" model="ir.ui.view">
+        <field name="name">vente.tree</field>
+        <field name="model">vendeur.vente</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="devis_date"/>
+                <field name="vendeur" widget="many2one_avatar_user"/>
+                <field name="client_id"/>
+                <field name="totalht" optional="show or hide"/>
+                <field name="totaltva" optional="show or hide"/>
+                <field name="total" optional="show or hide"/>
+            </tree>
+        </field>
+    </record>
+    <record model='ir.actions.act_window' id='vendeur_vente_action'>
+        <field name="name">Mes Ventes</field>
+        <field name="res_model">vendeur.vente</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('create_uid', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer de nouveaux devis
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

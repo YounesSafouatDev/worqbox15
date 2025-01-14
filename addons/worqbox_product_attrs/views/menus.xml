@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_attribut_master" name="Attributs" parent="sale.menu_sale_config" sequence="10"/>
+
+    <menuitem id="menu_lplcollect"
+              name="LPL Collection"
+              parent="menu_attribut_master"
+              sequence="101"
+              action="action_orac_lplcollect"/>
+
+    <menuitem id="menu_composition"
+              name="Composition"
+              parent="menu_attribut_master"
+              sequence="20"
+              action="action_orac_composition"/>
+
+    <menuitem id="menu_woodessence"
+              name="Choix de bois"
+              parent="menu_attribut_master"
+              sequence="30"
+              action="action_orac_woodessence"/>
+
+    <menuitem id="menu_woodchoice"
+              name="Essence de bois"
+              parent="menu_attribut_master"
+              sequence="40"
+              action="action_orac_woodchoice"/>
+
+    <menuitem id="menu_format"
+              name="Format"
+              parent="menu_attribut_master"
+              sequence="50"
+              action="action_orac_format"/>
+
+    <menuitem id="menu_usageclassification"
+              name="Classement usage"
+              parent="menu_attribut_master"
+              sequence="60"
+              action="action_orac_usageclassification"/>
+
+    <menuitem id="menu_integratedunderlay"
+              name="Sous couche integrée"
+              parent="menu_attribut_master"
+              sequence="70"
+              action="action_orac_integratedunderlay"/>
+
+    <menuitem id="menu_installation"
+              name="Installation"
+              parent="menu_attribut_master"
+              sequence="80"
+              action="action_orac_installation"/>
+
+    <menuitem id="menu_finition"
+              name="Finition"
+              parent="menu_attribut_master"
+              sequence="90"
+              action="action_orac_finition"/>
+
+    <menuitem id="menu_protection"
+              name="Protection"
+              parent="menu_attribut_master"
+              sequence="100"
+              action="action_orac_protection"/>
+
+    <menuitem id="menu_guarantee"
+              name="Garanties"
+              parent="menu_attribut_master"
+              sequence="110"
+              action="action_orac_guarantee"/>
+
+</odoo>

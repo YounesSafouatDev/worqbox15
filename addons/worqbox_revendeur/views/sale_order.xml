@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ <record model="ir.ui.view" id="view_sale_order_inherit_form">
+        <field name="name">sale.order.inherit_achat</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="achat_vendeur" />
+                </xpath>
+                <header>
+                    <button string="Recalculer les colles" type="object" class="btn-primary"
+                           help="Ce button vous permit Recalculer la qty des colles selon les acrticles selectioner "
+                           confirm="Voulais vous vraiment Recalculer nombre des colles?"
+                           name="action_colle" attrs="{'invisible':[('company_id','!=',11)]}" />
+          </header>
+        </field>
+    </record>
+
+</odoo>

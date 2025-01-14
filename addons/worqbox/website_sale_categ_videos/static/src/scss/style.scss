@@ -1,0 +1,26 @@
+#o-carousel-product-video .carousel-indicators {
+    position: static;
+    margin-top:20px;
+}
+
+#o-carousel-product-video .carousel-indicators > li {
+  width: 200px;
+  height: auto;
+}
+
+#o-carousel-product-video .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+
+#o-carousel-product-video .carousel-indicators li.active img {
+    opacity: 1;
+}
+
+#o-carousel-product-video .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+
+.carousel-item img{
+    width:80%;
+}

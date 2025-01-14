@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_orac_lplcollect">
+        <field name="name">LPL Collection</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.lplcollect</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier attribut
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_composition">
+        <field name="name">Composition</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.composition</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier attribut
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_woodessence">
+        <field name="name">Wood essence</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.woodessence</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Wood essence
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_woodchoice">
+        <field name="name">Wood Choice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.woodchoise</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Wood Choice
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_format">
+        <field name="name">Format</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.format</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Format
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_usageclassification">
+        <field name="name">Usage Classification</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.usageclassification</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Classification
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_integratedunderlay">
+        <field name="name">Integrated underlay</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.integratedunderlay</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Integrated underlay
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_installation">
+        <field name="name">Installation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.installation</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Installation
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_finition">
+        <field name="name">Finition</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.finition</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Finition
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_protection">
+        <field name="name">Protection</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.protection</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Protection
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_orac_guarantee">
+        <field name="name">Garantie</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orac.guarantee</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Garantie
+            </p>
+        </field>
+    </record>
+    
+</odoo>

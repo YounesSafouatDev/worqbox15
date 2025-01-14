@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<menuitem id="vendeur_menu_root"
+              name="Vendeur"
+              web_icon="gestion_vendeurHF75,static/revendeur.png"
+              sequence="0" />
+
+       <menuitem id="achat_menu"
+              name="Mes Achats"
+              sequence="0"
+              parent="vendeur_menu_root"
+              action="vendeur_achat_action"
+         />
+
+        <menuitem id="vente_menu"
+              name="Mes Vente"
+              sequence="0"
+              parent="vendeur_menu_root"
+              action="vendeur_vente_action"
+         />
+
+
+
+</odoo>

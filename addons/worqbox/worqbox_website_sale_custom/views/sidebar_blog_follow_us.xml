@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Separate them for better manipulation in Menu Website -> Customize-->
+    <template id="worqbox_opt_sidebar_blog_index_follow_us_tiktok" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Add tiktok to sidebar blog" >
+        <xpath expr="//div[hasclass('o_wblog_social_links')]/a[@t-if='website.social_instagram']" position="after">
+            <a t-if="website.social_tiktok" t-att-href="website.social_tiktok" t-att-class="classes" target="_blank"><i class="fa fa-tiktok " aria-label="TikTok" title="TikTok"/></a>
+        </xpath>
+    </template>
+
+    <template id="worqbox_opt_sidebar_blog_index_follow_us_rss" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Remove RSS from sidebar blog" >
+        <xpath expr="//div[hasclass('o_wblog_social_links')]/a[@t-if='blog']" position="replace"/>
+    </template>
+
+    <!-- Redefine sidebar_blog_index to exclude -->
+    <template id="worqbox_sidebar_blog_index" name="Remove About us blog" inherit_id="__export__.custom_sidebar_blog_about_us" active="True" customize_show="True">
+        <xpath expr="//div[1]/div[2]" position="replace">
+            <div class="o_wblog_sidebar_block pb-5"/>
+        </xpath>
+    </template>
+
+
+</odoo>

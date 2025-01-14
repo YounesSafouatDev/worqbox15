@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ <record model="ir.ui.view" id="view_sale_order_inherit_form">
+        <field name="name">sale.order.avoir.buttons</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="get_avoir"
+                icon="fa-pencil-square-o" attrs="{'invisible': [('avoir_count','=',0)]}">
+                    <field string="Avoir" name="avoir_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

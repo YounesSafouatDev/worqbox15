@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.neowall.marque,access_neowall_marque,model_neowall_marque,base.group_user,1,1,1,1
+access.neowall.format,access_neowall_format,model_neowall_format,base.group_user,1,1,1,1
+access.neowall.typegrammage,access_neowall_typegrammage,model_neowall_typegrammage,base.group_user,1,1,1,1
+access.neowall.motif,access_neowall_motif,model_neowall_motif,base.group_user,1,1,1,1
+access.neowall.coloris,access_neowall_coloris,model_neowall_coloris,base.group_user,1,1,1,1
+

@@ -1,0 +1,16 @@
+<odoo>
+    <record id="product_template_attrs_inherit_view" model="ir.ui.view">
+        <field name="name">product.template.attrs.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='orac_technical_doc']" position="after">
+                <field name="orac_company" invisible="1"/>
+                    
+                            <field name="orac_technical_max" />
+                            <field name="orac_technical_dwg" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

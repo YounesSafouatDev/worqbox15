@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Adding dimensions and replace sale description by web description -->
+    <template id="worqbox_quick_view_description" inherit_id="atharva_theme_base.as_quick_view">
+        <xpath expr="//p[@t-field='product.description_sale']" position="before">
+            <t t-call="worqbox_website_sale_custom.worqbox_product_dimension"/>
+        </xpath>
+        <xpath expr="//p[@t-field='product.description_sale']" position="attributes">
+            <attribute name="t-field">product.product_web_description</attribute>
+        </xpath>
+    </template>
+
+    <!-- Showing ml price and pc price -->
+    <template id="worqbox_quick_view_price" inherit_id="atharva_theme_base.as_quick_view">
+        <xpath expr="//div[hasclass('js_product')]/div" position="replace">
+            <div>
+                <t t-if="product.sale_uom_id != product.uom_id">
+                    <t t-call="website_sale.base_unit_price"/>
+                    <t t-call="worqbox_website_sale_custom.worqbox_product_price"/>
+                </t>
+                <t t-else="">
+                    <t t-call="website_sale.product_price"/>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Adding dimensions to mini-cart and removing description -->
+    <template id="worqbox_cart_lines_popup_content" inherit_id="atharva_theme_base.cart_lines_popup_content">
+        <xpath expr="//h6/t" position="replace"/>
+        <xpath expr="//h6" position="after">
+            <p t-if="line.product_id.profondeur or line.product_id.hauteur or line.product_id.longueur" class="text-muted pt-0 mb-1">
+                L <span t-field="line.product_id.longueur"/> * H <span t-field="line.product_id.hauteur"/> * P <span t-field="line.product_id.profondeur"/> cm
+            </p>
+        </xpath>
+    </template>
+
+</odoo>

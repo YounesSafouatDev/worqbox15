@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.orac.lplcollect,access_orac_lplcollect,model_orac_lplcollect,base.group_user,1,1,1,1
+access.orac.composition,access_orac_composition,model_orac_composition,base.group_user,1,1,1,1
+access.orac.woodessence,access_orac_woodessence,model_orac_woodessence,base.group_user,1,1,1,1
+access.orac.woodchoise,access_orac_woodchoise,model_orac_woodchoise,base.group_user,1,1,1,1
+access.orac.format,access_orac_format,model_orac_format,base.group_user,1,1,1,1
+access.orac.usageclassification,access_orac_usageclassification,model_orac_usageclassification,base.group_user,1,1,1,1
+access.orac.integratedunderlay,access_orac_integratedunderlay,model_orac_integratedunderlay,base.group_user,1,1,1,1
+access.orac.chamfer,access_orac_chamfer,model_orac_chamfer,base.group_user,1,1,1,1
+access.orac.installation,access_orac_installation,model_orac_installation,base.group_user,1,1,1,1
+access.orac.finition,access_orac_finition,model_orac_finition,base.group_user,1,1,1,1
+access.orac.protection,access_orac_protection,model_orac_protection,base.group_user,1,1,1,1
+access.orac.guarantee,access_orac_guarantee,model_orac_guarantee,base.group_user,1,1,1,1

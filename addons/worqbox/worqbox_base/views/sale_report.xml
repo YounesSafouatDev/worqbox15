@@ -1,0 +1,25 @@
+<odoo>
+    <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">
+        <!-- Force taxe excluded subtotal on product line -->
+        <xpath expr="//th[@name='th_subtotal']" position="replace">
+            <th name="th_subtotal" class="text-right">
+                <span>Montant</span>
+            </th>
+        </xpath>
+        <xpath expr="//td[@name='td_subtotal']" position="replace">
+            <td name="td_subtotal" class="text-right o_price_total">
+                <span t-field="line.price_subtotal"/>
+            </td>
+        </xpath>
+        <!-- Removing taxe column -->
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+                <th name="th_taxes" groups="worqbox_base.nouse"> Taxes
+            </th>
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+            <td name="td_taxes" groups="worqbox_base.nouse">
+                <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

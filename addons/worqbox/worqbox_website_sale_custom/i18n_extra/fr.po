@@ -1,0 +1,56 @@
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.cart
+msgid ""
+"<span class=\"\">Process Checkout</span>\n"
+"                                        <span class=\"fa fa-chevron-right\"/>"
+msgstr ""
+"<span class=\"\">Valider mon devis</span>\n"
+"                                    <span class=\"fa fa-chevron-right\"/>"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.cart
+msgid ""
+"<span class=\"\">Process Checkout</span>\n"
+"                                    <span class=\"fa fa-chevron-right\"/>"
+msgstr ""
+"<span class=\"\">Valider mon devis</span>\n"
+"                                    <span class=\"fa fa-chevron-right\"/>"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.short_cart_summary
+msgid "<span>Process Checkout</span>"
+msgstr "<span>Valider mon devis</span>"
+
+#. module: website_sale_product_configurator
+#. openerp-web
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
+#, python-format
+msgid "Proceed to Checkout"
+msgstr "Valider mon devis"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.cart
+msgid ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                        <span class=\"\">Continue Shopping</span>"
+msgstr ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                        <span class=\"\">Continuer à parcourir</span>"
+
+
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.cart
+msgid ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                    Continue<span class=\"d-none d-md-inline\"> Shopping</span>"
+msgstr ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                    Continuer<span class=\"d-none d-md-inline\"> à parcourir</span>"
+
+#. module: website_sale_product_configurator
+#. openerp-web
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
+#, python-format
+msgid "Continue Shopping"
+msgstr "Continuer à parcourir"y

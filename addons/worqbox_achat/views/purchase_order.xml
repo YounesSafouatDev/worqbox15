@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ <record model="ir.ui.view" id="view_purchase_order_inherit_form">
+        <field name="name">purchase.order.inherit_achat</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <header>
+                     <button string="Auto Generer les lignes" type="object" class="btn-primary"
+                            help="Ce button vous permit de auto generer les lignes articles a achter"
+                            confirm="Voulais vous vraiment generer les lignes ?"
+                            name="action_achat" attrs="{'invisible':[('company_id','!=',11)]}" />
+           </header>
+        </field>
+    </record>
+
+</odoo>

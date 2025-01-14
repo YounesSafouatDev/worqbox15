@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vendeur_achat,vendeur.achat,model_vendeur_achat,base.group_user,1,1,1,1
+access_vendeur_vente,vendeur.vente,model_vendeur_vente,base.group_user,1,1,1,1
+access_vendeur_lignevente,vendeur.venteligne,model_vendeur_venteligne,base.group_user,1,1,1,1
+access_vendeur_ligneachat,vendeur.achatligne,model_vendeur_achatligne,base.group_user,1,1,1,1

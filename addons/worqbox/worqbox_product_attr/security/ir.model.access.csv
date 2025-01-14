@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_worqbox_family,worqbox_family,model_worqbox_family,base.group_user,1,1,1,1

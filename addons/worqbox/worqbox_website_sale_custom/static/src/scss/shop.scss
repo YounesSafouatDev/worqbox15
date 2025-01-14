@@ -1,0 +1,35 @@
+
+/* Confirm Modal
+------------------------------*/
+.as-quick-product-attribute-modal {
+	.as-confirm-item-box {
+		.as-confirm-item-info {
+			padding: 40px 20px 20px;
+			text-align: center;
+			.card-title {
+				font-size: 18px;
+			}
+			.total {
+				font-size: 18px;
+			    font-weight: 600;
+			    margin-bottom: 10px;
+			    color: $as-dark;
+			}
+			.btn-bar {
+			    display: flex;
+				margin-top: 18px;
+				.btn {
+					flex: auto;
+    				margin: 3px;
+    				font-size: 14px;
+					@include media-breakpoint-up(md) {
+						.fa {
+							display: inline-flex;
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

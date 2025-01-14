@@ -1,0 +1,228 @@
+/* Columns categories accueil */
+.abs-h-center {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+/* Product configurator modal */
+.js_product {
+    .td-price,
+    .td-price-total {
+        width: 150px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        .td-price {
+            width: 80px;
+        }
+    }
+}
+
+
+/* Product related */
+.product-related {
+    margin-top: 2em;
+    
+    a {
+        color: black;
+        text-decoration-color: black;
+    }
+
+    a span.icon {
+        display: inline-block;
+        width: 30px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/* PRODUCT BANNER CSS */
+.product-banner {
+    background-color: white;
+    padding: 10px 0;
+
+    .banner-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        text-align: center;
+        text-transform: uppercase;
+        color: #D4AF36;
+        line-height: 28px;
+
+        div {
+            width: 100%;
+            border-right: 1px solid black;
+        }
+        div:last-child {
+            border-right: none;
+        }
+
+        span {
+            margin-left: 0;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        span.icon {
+            width: 40px;
+            margin-right: 1em;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Removing description in products kanban view
+#products_grid:not(.o_wsale_layout_list) .oe_subdescription {
+    display: none;
+}
+
+// Smaller product carousel height
+#product_detail #o-carousel-product .carousel-outer {
+    height: 540px;
+}
+
+// Common
+#products_grid_before {
+	.products_version_title {
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px solid #dee2e6;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        color: #343a40;
+        margin: 0;
+        font-size: 0.95rem !important;
+    }
+    
+    #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+		position: relative;
+		z-index: auto;
+
+        .multirange-wrapper {
+            margin: 15px 0 0;
+        }
+	}
+}
+
+@if o-website-value('shop-template')=='alan_shop0' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+            padding-top: 10px;
+            > label {
+                border-bottom: 1px solid $as-gray-300;
+                padding: 0 0 15px;
+                width: 100%;
+                margin: 0;
+                font-weight: 600;
+                color: $as-dark;
+            }
+        }
+    }
+}
+
+@if o-website-value('shop-template')=='alan_shop1' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            > label {
+                border-bottom: 1px solid $as-gray-300;
+                padding: 0 0 12px;
+                width: 100%;
+                margin: 0;
+                font-weight: 600;
+                color: $as-dark;
+            }
+        }
+    }
+}
+@if o-website-value('shop-template')=='alan_shop2' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+        	border: 1px solid $as-gray-300;
+        	padding: 15px;
+        	box-shadow: 7px 7px 1px -3px rgba($as-dark, 0.11);
+            > label {
+                border-bottom: 1px solid $as-gray-300;
+                padding: 0 15px 15px;
+                width: calc(100% + 30px);
+                margin: 0 -15px;
+                font-weight: 600;
+                color: $as-dark;
+                position: relative;
+                font-size: 15px;
+            }
+        }
+    }
+}
+@if o-website-value('shop-template')=='alan_shop3' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+            margin-top: 15px;
+            > label {
+                border-bottom: 1px solid $as-gray-300;
+                padding: 0 0 15px;
+                width: 100%;
+                margin: 0;
+                font-size: 16px;
+                color: $as-dark;
+                font-weight: 600;
+            }
+        }
+    }
+}
+@if o-website-value('shop-template')=='alan_shop4' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+            >label {
+                border-bottom: 1px solid $as-gray-300;
+                padding: 10px 0 15px;
+                width: 100%;
+                margin: 0;
+                font-weight: 600;
+                font-size: 15px;
+                color: $as-dark;
+            }
+        }
+    }
+}
+@if o-website-value('shop-template')=='alan_shop5' {
+    #products_grid_before {
+        #o_wsale_range_longueur, #o_wsale_range_profondeur, #o_wsale_range_hauteur {
+            box-shadow: 0px 1px 3px rgba(19, 16, 34, 0.1), 0px 1px 2px -1px rgba(19, 16, 34, 0.1);
+            border-radius: 6px;
+            border: 1px solid #EFECF3;
+            background: $as-white;
+            > label {
+                width: 100%;
+                padding: 13px;
+                border-bottom: 1px solid #EFECF3;
+                display: flex;
+                align-items: center;
+                position: relative;
+                color: $as-dark;
+                font-size: 0.95rem ;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.adress_required {
+    color: red;
+}

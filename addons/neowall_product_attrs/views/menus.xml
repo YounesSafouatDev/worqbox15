@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_attribut_master" name="NeoWall Attributs" parent="sale.menu_sale_config" sequence="10"/>
+
+    <menuitem id="menu_neowall_marque"
+              name="Marque"
+              parent="menu_attribut_master"
+              sequence="101"
+              action="action_neowall_marque"/>
+
+    <menuitem id="menu_neowall_format"
+              name="Format"
+              parent="menu_attribut_master"
+              sequence="20"
+              action="action_neowall_format"/>
+
+    <menuitem id="menu_neowall_grammage"
+              name="Type de grammage"
+              parent="menu_attribut_master"
+              sequence="30"
+              action="action_neowall_grammage"/>
+
+    <menuitem id="menu_neowall_motif"
+              name="Motif"
+              parent="menu_attribut_master"
+              sequence="40"
+              action="action_neowall_motif"/>
+
+
+
+    <menuitem id="menu_neowall_coloris"
+              name="Coloris"
+              parent="menu_attribut_master"
+              sequence="60"
+              action="action_neowall_coloris"/>
+
+</odoo>

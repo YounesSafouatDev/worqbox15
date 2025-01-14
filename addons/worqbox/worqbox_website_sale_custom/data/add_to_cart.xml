@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <function model="ir.ui.view" name="write">
+        <value eval="[ref('__export__.ir_ui_view_7098_eed28eb5'),ref('__export__.ir_ui_view_6981_f820d1f1'),ref('__export__.ir_ui_view_7040_3dbe8491')]"/>
+        <value eval="{'active': False}"/>
+    </function>
+
+</odoo>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="worqbox_product_dimension">
+      <t t-if="product.diametre == 0"> 
+        <p t-if="product.profondeur or product.hauteur or product.longueur" class="text-muted mb-0">
+            L <span t-field="product.longueur"/> * H <span t-field="product.hauteur"/> * P <span t-field="product.profondeur"/> cm
+        </p>
+        <p t-if="show_definition" class="text-muted mb-0">
+            (Longueur * Hauteur * Profondeur)
+        </p>
+       </t>
+       <t t-if="not product.diametre == 0"> 
+        <p t-if="product.profondeur or product.hauteur or product.longueur" class="text-muted mb-0">
+            D <span t-field="product.diametre"/> * P <span t-field="product.profondeur"/> cm
+        </p>
+        <p t-if="show_definition" class="text-muted mb-0">
+            (Diametre * Profondeur)
+        </p>
+       </t>
+    </template>
+
+    <template id="worqbox_product_detail_layout" name="Worqbox Product Layout" inherit_id="website_sale.product">
+        <!-- Shrink product carousel column -->
+        <xpath expr="//section/div[2]/div[1]" position="attributes">
+            <attribute name="class" remove="col-md-6" separator=" "></attribute>
+            <attribute name="class" add="col-md-5" separator=" "></attribute>
+        </xpath>
+        <!-- Shrink product details column -->
+        <xpath expr="//div[@id='product_details']" position="attributes">
+            <attribute name="class" remove="col-md-6" separator=" "></attribute>
+            <attribute name="class" add="col-md-4" separator=" "></attribute>
+        </xpath>
+        <!-- Add new column for product scheme and price -->
+        <xpath expr="//div[@id='product_details']" position="after">
+            <div id="orac_product_details" class="col-md-3 mt-md-4 text-center">
+                <div t-if="product.orac_scheme_url" class="orac_scheme">
+                    <img t-att-src="product.orac_scheme_url" loading="laze"/>
+                </div>
+                <div t-attf-class="mb-4 {{'mt-4' if product.orac_scheme_url else ''}}">
+                    <t t-if="product.sale_uom_id != product.uom_id">
+                        <t t-call="website_sale.base_unit_price"/>
+                        <t t-call="worqbox_website_sale_custom.worqbox_product_price"/>
+                    </t>
+                    <t t-else="">
+                        <t t-call="website_sale.product_price"/>
+                    </t>
+                </div>
+                <div  t-if="product.orac_technical_doc" class="orac_tds" id="orac_tds">
+ 
+                        <div class="dropdown">
+                            <button onclick="ShowDownload()" >Télécharger <i class="fa fa-download"></i></button>
+                            <div id="DivDownload" class="dropdown-options" style="width: 100%;display:none;">
+                            <a t-att-href="product.orac_technical_doc"  style="border: 1px solid;" >Fiche technique   .Pdf</a>
+                            <a t-if="product.orac_technical_dwg" t-att-href="product.orac_technical_dwg" style="border: 1px solid;margin-top: 2px;">Modélisation   .Dwg</a>
+                            <a t-if="product.orac_technical_max" t-att-href="product.orac_technical_max" style="border: 1px solid;margin-top: 2px;" >Modélisation   .Max</a>
+                            </div>
+                        </div>
+                </div>
+                <div t-if="product.company_id.name == 'ORAC Maroc'" id="socialShare" class="mobile-social-share" style="margin-right: -0.3rem;">
+                <button onclick="ShowShare()" id="webshareapi" style="width:15rem;">Partager <i class="fa fa-share-alt"></i></button>  
+                        <ul id="UlShare" style="display:none;" >
+                            <li>
+                                <a  t-attf-href="https://api.whatsapp.com/send?text=https://www.oracmaroc.com/shop/{{product.id}}"
+                                  class="btn btn-whatsapp" data-action="share/whatsapp/share"  target="_blank" style="margin-top: 2.2rem;margin-left: -26rem;">
+                                    <i class="fa fa-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    
+                </div>
+            </div>
+        </xpath>
+        <!-- Use product display name everywhere possible -->
+        <span t-field="product.name" position="replace">
+            <span t-field="product.display_name"/>
+        </span>
+        <h1 t-field="product.name" position="replace">
+            <h1 itemprop="name" t-field="product.display_name">Product Name</h1>
+        </h1>
+        <!-- Adding length, height and deep  -->
+        <p t-field="product.description_sale" position="before">
+            <t t-call="worqbox_website_sale_custom.worqbox_product_dimension">
+                <t t-set="show_definition" t-value="1"/>
+            </t>
+        </p>
+        <!-- Remove default price -->
+        <xpath expr="//div[hasclass('js_product')]/div" position="replace"/>
+        <!-- Change product description sale field by web description -->
+        <xpath expr="//p[@t-field='product.description_sale']" position="replace">
+            <p t-field="product.product_web_description" class="text-muted my-2" placeholder="Description produit pour site web"/>
+        </xpath>
+    </template>
+
+    <!-- Completely change the base unit price template -->
+    <template id="website_sale.base_unit_price" name="Worqbox Product Base unit price">
+        <h3 class="mb-0">
+            <span class="oe_base_price" t-esc="combination_info['base_unit_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+            / <span class="product_price" t-field="product.base_unit_name"/>
+        </h3>
+    </template>
+
+    <!-- Modifying price display to handle when base unit price printed before -->
+    <template id="website_sale.product_price">
+        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price d-inline-block mb-0 mt-0">
+            <!-- <h3 class="css_editable_mode_hidden" t-attf-style="{{ 'font-size: 1em;' if product.sale_uom_id != product.uom_id else ''}}"> -->
+            <h3 class="css_editable_mode_hidden">
+                <span class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                <span t-attf-class="text-danger oe_default_price ml-1 h5 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="text-decoration: line-through; white-space: nowrap;"
+                      t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"
+                /> / <span>pc</span>
+            </h3>
+            <h3 class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(website.currency_id.decimal_places)">
+                <span t-field="product.list_price"
+                      t-options='{
+                   "widget": "monetary",
+                   "display_currency": product.currency_id,
+               }'/>
+            </h3>
+        </div>
+    </template>
+
+    <!-- Modifying price display to handle when base unit price printed before -->
+    <template id="worqbox_product_price">
+        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price d-inline-block mb-0 mt-0">
+            (<span class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+            <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+            <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+            <span t-attf-class="text-danger oe_default_price ml-1 h5 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="text-decoration: line-through; white-space: nowrap;"
+                  t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"
+            /> / <span>pc</span>)
+            <p class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(website.currency_id.decimal_places)">
+                <span t-field="product.list_price"
+                      t-options='{
+                   "widget": "monetary",
+                   "display_currency": product.currency_id,
+               }'/>
+            </p>
+        </div>
+    </template>
+
+    <!-- Adding dimensions to alternative products -->
+    <template id="worqbox_alternative_products" inherit_id="atharva_theme_base.as_alternative_and_accessory_product">
+        <xpath expr="//h6" position="after">
+            <t t-call="worqbox_website_sale_custom.worqbox_product_dimension"/>
+        </xpath>
+    </template>
+
+    <!-- Category videos -->
+   
+
+    <!-- Product banner -->
+    <template id="worqbox_product_banner" name="Product Banner" inherit_id="website_sale.product" active="True" customize_show="True">
+        <xpath expr="//div[@id='oe_structure_website_sale_product_2']" position="before">
+            <t t-call="worqbox_website_sale_custom.product_banner"/>
+        </xpath>
+    </template>
+
+    <!-- Product related -->
+    <template id="worqbox_product_related" name="Product Related" inherit_id="website_sale.product" active="True" customize_show="True">
+        <xpath expr="//div[@id='o_product_terms_and_share']" position="after">
+            <div t-if="product.orac_struct_other and product.orac_struct_other.is_published" class="product-related">
+                <a t-att-href="product.orac_struct_other.website_url">
+                    <span class="icon">
+                        <img src="/worqbox_website_sale_custom/static/src/img/icon_flexible_noir.png"/>
+                    </span>
+                    <span t-if="product.orac_struct">Disponible en version semi-rigide</span>
+                    <span t-if="not product.orac_struct">Disponible en version flexible</span>
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Change share links -->
+    <template id="website_sale.product_share_buttons" inherit_id="website_sale.product" active="True" customize_show="True">
+        <xpath expr="//div[@id='o_product_terms_and_share']" position="inside">
+            <div class="h4 mt-3 d-flex justify-content-end" contenteditable="false">
+                <t t-snippet-call="website.s_share">
+                    <t t-set="_exclude_share_links" t-value="['twitter', 'pinterest', 'linkedin']"/>
+                    <t t-set="_no_title" t-value="True"/>
+                    <t t-set="_classes" t-valuef="text-lg-right d-none"/>
+                    <t t-set="_link_classes" t-valuef="mx-1 my-0"/>
+                </t>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

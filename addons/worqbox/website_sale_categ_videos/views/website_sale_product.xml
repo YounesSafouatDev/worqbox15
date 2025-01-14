@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Carousel videos from category -->
+    <template id="product_category_video_carousel" name="Shop Product Video Carousel">
+        <t t-set="product_category_videos" t-value="product.public_categ_ids._get_videos()"/>
+        <div id="o-carousel-product-video" class="carousel slide position-sticky mb-3 overflow-hidden" data-ride="carousel">
+            <div class="carousel-inner h-100">
+                <t t-foreach="product_category_videos" t-as="product_video">
+                    <div t-attf-class="carousel-item h-100#{' active' if product_video_first else ''}">
+                        <div class="d-flex align-items-center justify-content-center h-100 embed-responsive embed-responsive-16by9">
+                            <!-- <video class="embed-responsive-item" src="product_video.url"></video> -->
+                            <t t-out="product_video.embed_code"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+            
+            <t t-if="len(product_category_videos) > 1">
+                <a class="carousel-control-prev" href="#o-carousel-product-video" role="button" data-slide="prev">
+                    <span class="fa fa-chevron-left fa-2x" role="img" aria-label="Previous" title="Previous"/>
+                </a>
+                <a class="carousel-control-next" href="#o-carousel-product-video" role="button" data-slide="next">
+                    <span class="fa fa-chevron-right fa-2x" role="img" aria-label="Next" title="Next"/>
+                </a>
+            </t>
+
+            <ol class="carousel-indicators list-inline">
+                <t t-foreach="product_category_videos" t-as="product_video">
+                    <li t-attf-class="list-inline-item#{' active' if product_video_first else ''}">
+                        <a t-attf-id="carousel-selector-#{product_video_index}" class="selected" t-attf-data-slide-to="#{product_video_index}" data-target="#o-carousel-product-video">
+                            <span t-field="product_video.thumbnail" t-options='{"widget": "image", "class": "mh-100", "alt-field": "name"}'/>
+                        </a>
+                    </li>
+                </t>
+            </ol>
+        </div>
+    </template>
+
+</odoo>

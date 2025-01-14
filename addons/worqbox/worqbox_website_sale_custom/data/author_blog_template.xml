@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('website_blog.opt_posts_loop_show_author'),ref('website_blog.sidebar_blog_index')]"/>
+            <value eval="{'active': False}"/>
+        </function>
+
+        <function model="ir.model.data" name="_update_xmlids">
+            <value model="ir.ui.view" eval="[{
+                'xml_id': '__export__.custom_sidebar_blog_about_us',
+                'record': obj().env['ir.ui.view'].search([('name', '=', 'Sidebar - Blog page')], limit=1),
+                'noupdate': True,
+            }]"/>
+        </function>
+    </data>
+
+
+</odoo>

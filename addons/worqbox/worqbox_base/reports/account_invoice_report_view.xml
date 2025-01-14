@@ -1,0 +1,30 @@
+<odoo>
+    <template id="report_invoice_letters" inherit_id="account.report_invoice_document">
+        <!-- Force tax excluded subtotal on product line -->
+        <xpath expr="//th[@name='th_subtotal']" position="replace">
+            <th name="th_subtotal" class="text-right">
+                <span>Montant</span>
+            </th>
+        </xpath>
+        <xpath expr="//td[hasclass('o_price_total')]" position="replace">
+            <td class="text-right o_price_total">
+                <span t-field="line.price_subtotal"/>
+            </td>
+        </xpath>
+        <!-- Remove tax column -->
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+                <th name="th_taxes" groups="worqbox_base.nouse"> Taxes
+            </th>
+        </xpath>
+        <xpath expr="//tbody//td[contains(@t-attf-class, 'text-left')]" position="replace">
+            <td t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" groups="worqbox_base.nouse">
+                <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+            </td>
+        </xpath>
+        <xpath expr='//p[@name="payment_communication"]' position="before">
+            <br/>Montant total en lettres :<br/>
+            <b><span t-field="o.total_in_words"/></b>
+        </xpath>
+    </template>
+
+</odoo>

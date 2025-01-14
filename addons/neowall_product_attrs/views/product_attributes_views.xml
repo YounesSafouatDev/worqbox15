@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_neowall_marque">
+        <field name="name">Marque</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">neowall.marque</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Marque
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_neowall_format">
+        <field name="name">Format</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">neowall.format</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Format
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_neowall_grammage">
+        <field name="name">Type de grammage</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">neowall.typegrammage</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier type de grammage
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_neowall_motif">
+        <field name="name">Motif</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">neowall.motif</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier motif
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_neowall_coloris">
+        <field name="name">Coloris</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">neowall.coloris</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier Coloris
+            </p>
+        </field>
+    </record>
+</odoo>

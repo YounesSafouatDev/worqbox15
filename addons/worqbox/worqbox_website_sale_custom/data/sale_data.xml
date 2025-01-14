@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <function model="ir.model.data" name="write">
+            <value model="ir.model.data" search="[('name', '=', 'default_confirmation_template')]"/>
+            <value eval="{'noupdate': False}"/>
+        </function>
+        <!-- set default order confirmation template -->
+        <record id="sale.default_confirmation_template" model="ir.config_parameter">
+            <field name="value" ref="worqbox_website_sale_custom.mail_template_sale_confirmation"/>
+        </record>
+        <function model="ir.model.data" name="write">
+            <value model="ir.model.data" search="[('name', '=', 'default_confirmation_template')]"/>
+            <value eval="{'noupdate': True}"/>
+        </function>
+
+    </data>
+</odoo>

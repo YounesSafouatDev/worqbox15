@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Hide Wishlist button -->
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('website_sale_wishlist.add_to_wishlist'),ref('website_sale_wishlist.product_add_to_wishlist'),ref('__export__.ir_ui_view_7200_f10cc602'),ref('__export__.ir_ui_view_7103_d375a637')]"/>
+            <value eval="{'active': False}"/>
+        </function>
+
+        <!--Hide Wishlist button in header -->
+        <template id="worqbox_header_wishlist_link" inherit_id="website_sale_wishlist.header_hide_empty_wishlist_link" name="WorkBox wishlist link">
+            <xpath expr="//li[contains(@t-attf-class, 'o_wsale_my_wish')]" position="attributes">
+                <attribute name="t-attf-class" remove="o_wsale_my_wish_hide_empty" add="d-none" separator=" "/>
+            </xpath>
+        </template>
+    </data>
+
+</odoo>

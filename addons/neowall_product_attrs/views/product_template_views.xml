@@ -1,0 +1,41 @@
+<odoo>
+    <record id="product_template_inherit_view_add_new_fields" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Description vente NeoWall" name="description vente"
+                      >
+                    <group>
+                        <group>
+                            <field name="marque"/>
+                            <field name="neo_format"/>
+                            <field name="typeGrammage"/>
+                            <field name="motif"/>
+                            <field name="coloris"/>
+                        </group>
+                        <group>
+                            <field name="width"/>
+                            <field name="length"/>
+                        </group>
+                    </group>
+                </page>
+<!--                <page string="Description vente ORAC" name="description vente"-->
+<!--                      attrs="{'invisible':[('company_ids', 'not in', 11)]}">-->
+<!--                    <group>-->
+<!--                        <field name="depth"/>-->
+<!--                        <field name="hight"/>-->
+<!--                        <field name="length"/>-->
+<!--                        <field name="diameter"/>-->
+<!--                        <field name="composition"/>-->
+<!--                    </group>-->
+<!--                </page>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+<!--attrs="{'invisible':[('company_ids', 'not in', 1)]}"-->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Banner code -->
+    <template id="product_banner" name="Product Banner">
+        <div class="container mb-8 d-none d-lg-block">
+            <div class="row product-banner">
+                <div class="col-md-12 banner-content">
+                    <div>
+                        <span class="icon">
+                            <img src="/worqbox_website_sale_custom/static/src/img/icon_resistant_noir.png"/>
+                        </span>
+                        <span>Résistant à l'eau</span>
+                    </div>
+                    <div>
+                        <span class="icon">
+                            <img src="/worqbox_website_sale_custom/static/src/img/icon_ecologique_noir.png"/>
+                        </span>
+                        <span>Écologique</span>
+                    </div>
+                    <div>
+                        <span class="icon">
+                            <img src="/worqbox_website_sale_custom/static/src/img/icon_facile_noir.png"/>
+                        </span>
+                        <span>Facile à installer</span>
+                    </div>
+                    <div>
+                        <span class="icon">
+                            <img src="/worqbox_website_sale_custom/static/src/img/icon_flexible_noir_2.png"/>
+                        </span>
+                        <span>Flexible</span>
+                    </div>
+                    <div>
+                        <span class="icon">
+                            <img src="/worqbox_website_sale_custom/static/src/img/icon_peindre_noir.png"/>
+                        </span>
+                        <span>Peut être peint</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>
